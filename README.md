@@ -2,14 +2,19 @@
 Operator style cronjob to clean up evicted pods in kubernetes  
 Needs to be deployed into the namespace it should clean up
 
-### how to build Dockerimage
-* clone repo and cd into it
-* `docker build -t kube-evict-rs:1.0.0 .`
+### supported kubernetes versions
+1.19.x - ✔️  
+1.20.x - ?  
+1.21.x - ?  
 
 ### rbac
 Needs `list` and `deletecollection` rights for `pods`
 
-### sample deployment
+### how to build Dockerimage
+* clone repo and cd into it
+* `docker build -t kube-evict-rs:1.0.0 .`
+
+### sample cronjob including rbac
 
 ```yaml
 apiVersion: batch/v1beta1
