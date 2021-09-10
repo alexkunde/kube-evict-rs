@@ -4,7 +4,7 @@ Needs to be deployed into the namespace it should clean up
 
 ### supported kubernetes versions
 1.19.x - ✔️  
-1.20.x - ?  
+1.20.x - ✔️  
 1.21.x - ?  
 
 ### rbac
@@ -12,7 +12,7 @@ Needs `list` and `deletecollection` rights for `pods`
 
 ### how to build Dockerimage
 * clone repo and cd into it
-* `docker build -t kube-evict-rs:1.0.0 .`
+* `docker build -t kube-evict-rs:0.1.0 .`
 
 ### sample cronjob including rbac
 
@@ -34,7 +34,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: delete-evicted-pods
-              image: xx/kube-evict-rs:1.0.0
+              image: <your-container-reg>/kube-evict-rs:0.1.0
               env:
               - name: NAMESPACE
                 valueFrom:
